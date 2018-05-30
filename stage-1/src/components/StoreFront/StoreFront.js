@@ -3,19 +3,21 @@ import axios from 'axios';
 import './StoreFront.css';
 
 class StoreFront extends Component {
-    constructor() {
-        super();
+    constructor(Props) {
+        super(Props);
 
         this.state = {
             products: []
         }
+       
+
     }
 
     componentDidMount() {
         axios.get("https://practiceapi.devmountain.com/products/")
             .then((response) => {
                 this.setState({
-                    products: response
+                    products: response.data
                 })
             })
     }
